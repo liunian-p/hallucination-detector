@@ -93,10 +93,6 @@ mvn -Dmaven.repo.local=/Users/panky/Documents/workspace/v8-mvn spring-boot:run -
 - 复合回复一部分正确、一部分错误，需要按声明而非整段判断。
 - 风险依赖语境时，如尺码建议、孕期提示，必须识别是否改变用户的实际行动。
 
-对生产环境，建议将 `LOW` 级“知识库未明确保证”的发现送人工复核，而将 `HIGH`/`CRITICAL` 直接拦截或转人工，并用独立于规则设计的评测集持续计算指标。
-
-逐条结果见 [reports/results.md](reports/results.md)，机器可读检测结果见 [reports/detections.json](reports/detections.json)，评估见 [reports/evaluation.json](reports/evaluation.json)。`reports/provenance.json` 记录了输入和规则的 SHA-256，以及本次没有运行 Java 编译/测试或真实 LLM 的事实。
-
 ## 依赖与验证
 
 保留并使用了要求的三个依赖：`spring-boot-starter`、`spring-ai-starter-model-openai`、`spring-boot-starter-test`；另增加了 Web 页面所需的 `spring-boot-starter-web` 与 Spring AI Alibaba Agent Framework。依赖版本集中在 `pom.xml`。
