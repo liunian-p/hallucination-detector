@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>客服回复幻觉检测</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>客服回复幻觉检测</h1>
+    <section class="upload" aria-label="上传文件">
+      <label for="file">上传回复 JSON 文件</label>
+      <input id="file" type="file" accept=".json,application/json">
+      <button id="detect" type="button" disabled>开始检测</button>
+    </section>
+    <p id="status" role="status" aria-live="polite">请选择 JSON 文件</p>
+    <p id="error" role="alert" hidden></p>
+    <section id="results" hidden>
+      <div class="results-heading">
+        <h2 id="summary">检测结果</h2>
+        <button id="download" type="button">下载检测结果 JSON</button>
+      </div>
+      <table><thead><tr><th>ID</th><th>用户问题</th><th>检测结论</th><th>类型</th><th>严重程度</th><th>说明</th></tr></thead><tbody id="rows"></tbody></table>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,55 @@
+spring:
+  profiles:
+    default: mock
+  ai:
+    model:
+      chat: none
+      embedding: none
+      image: none
+      moderation: none
+      audio:
+        speech: none
+        transcription: none
+
+detector:
+  mode: mock
+
+logging:
+  level:
+    root: INFO
+
+server:
+  address: 127.0.0.1
+  port: ${PORT:8080}
+  error:
+    include-message: never
+    include-stacktrace: never
+
+---
+spring:
+  config:
+    activate:
+      on-profile: siliconflow
+  ai:
+    model:
+      chat: openai
+    openai:
+      api-key: ${SILICONFLOW_API_KEY}
+      base-url: ${SILICONFLOW_BASE_URL:https://api.siliconflow.cn}
+      chat:
+        completions-path: /v1/chat/completions
+        options:
+          model: ${SILICONFLOW_MODEL:Qwen/Qwen2.5-72B-Instruct}
+          temperature: 0
+    retry:
+      max-attempts: 2
+      backoff:
+        initial-interval: 1s
+        max-interval: 2s
+  http:
+    client:
+      connect-timeout: 10s
+      read-timeout: 90s
+
+detector:
+  mode: siliconflow
