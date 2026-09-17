@@ -1,0 +1,24 @@
+# Maven and Java build output
+target/
+*.class
+hs_err_pid*
+
+# IntelliJ IDEA local files
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+application-local.yml
+application-local.yaml
+
+# Logs and operating system files
+*.log
+.DS_Store
+
+# Runtime output
+reports-live/
